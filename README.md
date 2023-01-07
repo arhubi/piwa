@@ -14,6 +14,16 @@ And returns them with a flexible API.
 
 ## How to use
 
+Import piwa in your file:
+
+```ts
+// ESM
+import piwa from 'piwa';
+
+// CJS
+const piwa = require('piwa');
+```
+
 ### Promise
 
 ```ts
