@@ -1,0 +1,36 @@
+{
+  "name": "piwa",
+  "version": "1.0.0-beta.1",
+  "description": "A simple and handy promise wrapper",
+  "main": "./dist",
+  "types": "./dist/index.d.ts",
+  "author": "Arthur Brière (arhubi)",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "playground": "node --loader ts-node/esm ./playground/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "release": "zx scripts/release.mjs"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "kolorist": "^1.6.0",
+    "semver": "^7.3.8",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.3",
+    "zx": "^7.1.1"
+  },
+  "dependencies": {}
+}
