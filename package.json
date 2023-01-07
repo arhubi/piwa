@@ -14,7 +14,7 @@
   },
   "scripts": {
     "playground": "node --loader ts-node/esm ./playground/index.ts",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.ts",
     "release": "zx scripts/release.mjs"
   },
   "engines": {

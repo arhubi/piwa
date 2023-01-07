@@ -21,7 +21,7 @@ Import piwa in your file:
 import piwa from 'piwa';
 
 // CJS
-const { piwa } = require('piwa');
+const piwa = require('piwa');
 ```
 
 ### Promise
