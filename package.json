@@ -1,7 +1,7 @@
 {
   "name": "piwa",
-  "version": "1.0.0-beta.1",
-  "description": "A simple promise wrapper 🍺",
+  "version": "1.0.0-beta.2",
+  "description": "A simple promise wrapper",
   "main": "./dist",
   "types": "./dist/index.d.ts",
   "author": "Arthur Brière (arhubi)",
