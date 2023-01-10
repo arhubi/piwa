@@ -38,10 +38,17 @@ const { data, error } = await piwa(myPromise); // returns { data: null, error: E
 ### Async function
 
 ```ts
-const myAsyncFn = async (() => return 'ok!');
+const myAsyncFn = async () => {
+  await anyAsyncFn;
+  // ...
+  return 'ok!';
+};
 const { data, error } = await piwa(myPromise); // returns { data: 'ok!', error: null }
 
-const myAsyncFn = async (() => throw 'ko!');
+const myAsyncFn = async () => {
+  // ...
+  throw 'ko!';
+};
 const { data, error } = await piwa(myPromise); // returns { data: null, error: Error }
 ```
 
@@ -51,6 +58,6 @@ const { data, error } = await piwa(myPromise); // returns { data: null, error: E
 const myFunction = () => return 'ok!';
 const { data, error } = await piwa(myPromise); // returns { data: 'ok!', error: null }
 
-const myFunction = () => throw 'ko!';
+const myFunction = () => { throw 'ko!' };
 const { data, error } = await piwa(myPromise); // returns { data: null, error: Error }
 ```
