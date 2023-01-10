@@ -6,6 +6,13 @@
   "types": "./dist/index.d.ts",
   "author": "Arthur Brière (arhubi)",
   "license": "MIT",
+  "keywords": [
+    "promise",
+    "wrapper",
+    "async",
+    "await",
+    "async await"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
