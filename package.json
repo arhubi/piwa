@@ -25,6 +25,11 @@
     "release": "zx scripts/release.mjs",
     "test": "ava"
   },
+  "homepage": "https://github.com/arhubi/piwa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arhubi/piwa.git"
+  },
   "engines": {
     "node": ">=14.19.0 || >=16.15.0"
   },
