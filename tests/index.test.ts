@@ -32,7 +32,7 @@ test('returns error for a failing promise', async t => {
 
   t.is(data, null);
   t.is(error instanceof Error, true);
-  t.is(error.message, 'ko!');
+  t.is(error?.message, 'ko!');
 });
 
 test('returns a PiwaBadInput error if argument is not allowed', async t => {
