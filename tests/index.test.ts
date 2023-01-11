@@ -35,10 +35,11 @@ test('returns error for a failing promise', async t => {
   t.is(error.message, 'ko!');
 });
 
-test('returns a PiwaBadInput error if argument is not allowed', async t => {
-  // @ts-ignore
-  const { data, error } = await piwa({});
+test('returns a PiwaBadInputError if argument is not allowed', async t => {
+  const invalidPiwaUsage = async () => {
+    // @ts-expect-error
+    await piwa({});
+  };
 
-  t.is(data, null);
-  t.is(error instanceof PiwaBadInputError, true);
+  await t.throwsAsync(invalidPiwaUsage(), { instanceOf: PiwaBadInputError });
 });
