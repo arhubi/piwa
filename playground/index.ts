@@ -42,4 +42,33 @@ import piwa from '../src';
   });
   console.log('[demo 6] Error from sync function:', demo6Error);
   console.log('[demo 6] Where is the data?', demo6Data);
+
+  // Piwa works great with typings too
+  // You can type data
+  interface Data {
+    key: string;
+  }
+  const { data: demo7Data } = await piwa<Data>(() => {
+    return { key: 'value' };
+  });
+  console.log('[demo 7] Data is properly typed:', demo7Data?.key);
+
+  // And you can type error
+  class BigError extends Error {
+    data: 'I’m the big error data';
+  }
+  const { error: demo8Error } = await piwa<null, BigError>(() => {
+    throw new BigError('Boom!');
+  });
+  console.log('[demo 8] Error is properly typed too:', demo8Error?.data);
+
+  // ----
+
+  // If the input is incorrect, piwa throws with a PiwaBadInputError
+  const { error: demo9Error } = await piwa(async () => {
+    // We deliberately pass a wrong input
+    // @ts-expect-error
+    await piwa({});
+  });
+  console.log('[demo 9] Error is:', demo9Error);
 })();
