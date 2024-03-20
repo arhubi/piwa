@@ -1,74 +1,78 @@
 # Piwa
 
-A simple and handy promise and try/catch wrapper.
+**Piwa** wraps your promises, async, and sync functions in a sleek, error-handling cocoon, letting you focus on what truly matters: your code's logic, not its plumbing.
 
-## Features
+## Why Piwa?
 
-Piwa handles the following:
+- **Simplify Error Handling**: Say goodbye to cluttered try/catch blocks.
+- **Unified API**: Whether it's a promise, an async function, or a simple synchronous function, Piwa handles it all.
+- **Cleaner Code**: Your codebase stays clean and readable, making maintenance and debugging a breeze.
 
-- Promises
-- Async functions
-- Sync functions
+## Getting Started
 
-And returns them with a flexible API.
+### Installation
 
-## How to use
+Install Piwa with npm:
 
-Import piwa in your project:
+```sh
+npm install piwa
+```
+
+Or with yarn:
+
+```
+yarn add piwa
+```
+
+### Importing Piwa
 
 ```ts
-// ESM
+// Using ES Modules
 import piwa from 'piwa';
 
-// CJS
+// Using CommonJS
 const piwa = require('piwa');
 ```
 
-### Promise
+## Usage
+
+### Handling Promises
 
 ```ts
-// Promise
 const myPromise = new Promise((resolve, reject) => {
-  // ... processing
-  resolve('ok!');
+  // Your logic here...
+  resolve('Success!');
 });
-const { data, error } = await piwa(myPromise); // returns { data: 'ok!', error: null }
 
-const myPromise = new Promise((resolve, reject) => {
-  // ... processing
-  reject('ko!');
-});
-const { data, error } = await piwa(myPromise); // returns { data: null, error: 'ko!' }
+// Using Piwa
+const { data, error } = await piwa(myPromise);
+console.log(data); // 'Success!', error: null
 ```
 
-### Async function
+### With Async Functions
 
 ```ts
-const myAsyncFn = async () => {
-  // ... processing
-  return 'ok!';
-};
-const { data, error } = await piwa(myAsyncFn); // returns { data: 'ok!', error: null }
+async function myAsyncFunction() {
+  // Your logic here...
+  return 'Async Success!';
+}
 
-const myAsyncFn = async () => {
-  // ... processing
-  throw 'ko!';
-};
-const { data, error } = await piwa(myAsyncFn); // returns { data: null, error: Error }
+// Wrap with Piwa
+const { data, error } = await piwa(myAsyncFunction);
+console.log(data); // 'Async Success!', error: null
 ```
 
-### Sync function
+### Wrapping Synchronous Functions
 
-Piwa automatically wraps sync functions within a promise.
+Piwa elegantly wraps synchronous functions, handling both return values and exceptions.
 
 ```ts
-const myFunction = () => {
-  return 'ok!';
-};
-const { data, error } = await piwa(myFunction); // returns { data: 'ok!', error: null }
+function mySyncFunction() {
+  // Your logic here...
+  return 'Sync Success!';
+}
 
-const myFunction = () => {
-  throw 'ko!';
-};
-const { data, error } = await piwa(myFunction); // returns { data: null, error: Error }
+// Piwa wraps it in a promise
+const { data, error } = await piwa(mySyncFunction);
+console.log(data); // 'Sync Success!', error: null
 ```
