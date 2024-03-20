@@ -2,7 +2,7 @@
  * Promise wrapper that returns data or error in an object format
  * @param promiseOrFunction - Any promise, async function, or function
  */
-async function piwa<Data, Err extends Error = Error>(
+async function _piwa<Data, Err extends Error = Error>(
   promiseOrFunction: PiwaArgs<Data>
 ): PiwaResponse<Data, Err> {
   const isValidInput =
@@ -44,4 +44,6 @@ export type PiwaResponse<Data, Err extends Error> = Promise<
   { data: Data; error: null } | { data: null; error: Err }
 >;
 
-export default piwa;
+export default _piwa;
+export const pw = _piwa;
+export const piwa = _piwa;
