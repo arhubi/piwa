@@ -17,8 +17,8 @@ async function _piwa<Data, Err extends Error = Error>(
     promiseOrFunction instanceof Promise
       ? promiseOrFunction
       : typeof promiseOrFunction === 'function'
-      ? (async () => promiseOrFunction())()
-      : promiseOrFunction;
+        ? (async () => promiseOrFunction())()
+        : promiseOrFunction;
 
   return _promise
     .then((data: Data) => ({ data, error: null }))
