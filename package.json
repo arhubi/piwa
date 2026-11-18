@@ -2,6 +2,7 @@
   "name": "piwa",
   "version": "1.0.1",
   "description": "A simple promise wrapper",
+  "packageManager": "pnpm@10.34.9",
   "main": "./dist",
   "types": "./dist/index.d.ts",
   "author": "Arthur Brière (arhubi)",
@@ -29,7 +30,11 @@
     "playground": "node --loader ts-node/esm ./playground/index.ts",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "release": "zx scripts/release.mjs",
-    "test": "ava"
+    "test": "ava",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "type-check": "tsc --noEmit"
   },
   "homepage": "https://github.com/arhubi/piwa",
   "repository": {
@@ -46,10 +51,12 @@
     "@types/node": "^18.11.18",
     "ava": "^5.1.0",
     "kolorist": "^1.6.0",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
     "semver": "^7.3.8",
     "ts-node": "^10.9.1",
     "tsup": "^8",
-    "typescript": "^4.9.3",
+    "typescript": "^5.9.3",
     "zx": "^7.1.1"
   },
   "ava": {
