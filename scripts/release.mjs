@@ -2,7 +2,7 @@
 import semverParse from 'semver/functions/parse.js';
 
 // Prevent auth issue in the `npm publish`
-$.env.npm_config_registry = undefined;
+$.env.npm_config_registry = 'https://registry.npmjs.org';
 
 const { name, version } = await fs.readJson('./package.json');
 import { bgCyan, bgYellow, bgGreen, bgRed, cyan, bold } from 'kolorist';
