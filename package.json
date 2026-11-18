@@ -56,7 +56,7 @@
     "semver": "^7.3.8",
     "ts-node": "^10.9.1",
     "tsup": "^8",
-    "typescript": "^4.9.3",
+    "typescript": "^5.9.3",
     "zx": "^7.1.1"
   },
   "ava": {
