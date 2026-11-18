@@ -1,6 +1,6 @@
 {
   "name": "piwa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple promise wrapper",
   "main": "./dist",
   "types": "./dist/index.d.ts",
@@ -15,9 +15,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
   "scripts": {
@@ -43,7 +48,7 @@
     "kolorist": "^1.6.0",
     "semver": "^7.3.8",
     "ts-node": "^10.9.1",
-    "tsup": "^6.5.0",
+    "tsup": "^8",
     "typescript": "^4.9.3",
     "zx": "^7.1.1"
   },

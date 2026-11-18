@@ -23,8 +23,8 @@ if (filesInDiff.length > 1) {
   process.exit(1);
 }
 
-await $`yarn test`;
-await $`yarn build`;
+await $`pnpm test`;
+await $`pnpm build`;
 
 console.log(`${bgCyan(' INFO ')} Build succeeded!`);
 
